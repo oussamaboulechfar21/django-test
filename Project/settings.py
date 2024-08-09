@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%k!s)p%*)dgdo=v_dq1u8fj7!h_g(7asnxv1^i!qg0wxzp12r2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['oussamaboulechfar21.pythonanywhere.com']
 
@@ -76,15 +76,10 @@ WSGI_APPLICATION = 'Project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',  # يجب أن يتطابق مع اسم قاعدة البيانات في docker-compose.yml
-        'USER': 'postgres',
-        'PASSWORD': '1936',
-        'HOST': 'localhost',  # اسم الخدمة في docker-compose.yml
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
